@@ -144,13 +144,14 @@ def vigenere_encode(string, phrase):
         Vigenere algorithm
     """
     clean_string = filter_string(string)
+    clean_phrase = filter_string(phrase)
     encode = ""
 
     l_string = len(clean_string)
-    l_phrase = len(phrase)
+    l_phrase = len(clean_phrase)
 
     for i in range(l_string):
-        encode += encode_character(phrase[i%l_phrase],clean_string[i])
+        encode += encode_character(clean_phrase[i%l_phrase],clean_string[i])
 
     return encode
 
@@ -162,13 +163,14 @@ def vigenere_decode(string, phrase):
         Vigenere algorithm
     """
     clean_string = filter_string(string)
+    clean_phrase = filter_string(phrase)
     decode = ""
 
     l_string = len(clean_string)
-    l_phrase = len(phrase)
+    l_phrase = len(clean_phrase)
 
     for i in range(l_string):
-        decode += decode_character(phrase[i%l_phrase],clean_string[i])
+        decode += decode_character(clean_phrase[i%l_phrase],clean_string[i])
 
     return decode
 
